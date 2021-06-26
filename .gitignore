@@ -1,0 +1,9 @@
+# Ignore some default xampp files
+dashboard/
+img/
+webalizer/
+xampp/
+applications.html/
+bitnami.css
+.old_index.php
+favicon.ico

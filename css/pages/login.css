@@ -1,0 +1,139 @@
+/* Main content styling */
+canvas {
+    position: absolute;
+    top: 0; left: 0;
+}
+
+.interface {
+    position: absolute;
+    top: 0; left: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
+.interface-panel {
+    display: block;
+    position: relative;
+    top: 50%; left: 50%;
+    
+    width: 400px;
+    height: 700px;
+
+    background: white;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+
+    transform: translate(-50%, -50%);
+}
+
+.interface-panel-form {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.form-section {
+    display: block;
+}
+
+/* Styling for form title */
+.interface-panel-form-title-container {
+    flex-grow: 1;
+}
+
+.interface-panel-form-title {
+    width: 100%; 
+    height: 100%;
+
+    font-family: var(--main-title-font);
+    font-size: 80px;
+}
+
+.interface-panel-form-title-text {
+    position: relative;
+    top: 50%; left: 50%;
+
+    padding-left: 8%;
+
+    font-family: var(--main-title-font);
+    font-size: 78px;
+
+    transform: translate(-50%, -50%);
+}
+
+/* Styling for form inputs */
+.interface-panel-form-inputs-container {
+    flex-grow: 4;
+}
+
+.interface-panel-form-inputs {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%; 
+    height: 100%;
+
+    font-family: var(--form-input-font);
+    font-size: 1vw;
+}
+
+.interface-panel-form-inputs-field {
+    flex-grow: 1;
+    width: 100%;
+}
+
+.interface-panel-form-inputs-field-input-container {
+    width: 100%;
+    height: 100%;
+}
+
+.interface-panel-form-inputs-field-input {
+    position: relative;
+    top: 50%; left: 50%;
+
+    width: 80%;
+    height: 50%;
+
+    border: none;
+    border-bottom: solid black 1px;
+
+    font-family: var(--form-input-font);
+    font-size: 1vw;
+
+    transform: translate(-50%, -50%);
+}
+
+.interface-panel-form-inputs-field-button {
+    position: relative;
+    top: 50%; left: 50%;
+
+    width: 30%;
+    height: 54%;
+
+    border: none;
+
+    background: rgba(200, 200, 200, 1);
+    font-family: var(--alt-title-font);
+    font-size: 1vw;
+    font-weight: normal;
+    letter-spacing: 1px;
+
+    transform: translate(-50%, -90%);
+}
+
+.interface-panel-form-inputs-field-button:hover {
+    background: rgba(75, 125, 255, 1);
+}
+
+.interface-panel-form-inputs-field-input:focus {
+    outline: none;
+}
+
+.interface-panel-form-foot-container {
+    flex-grow: 9;
+
+    background: rgb(75, 125, 255);
+}

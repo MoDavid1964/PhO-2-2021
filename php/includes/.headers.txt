@@ -1,0 +1,2 @@
+PHP header files
+Some of these act as templates while others provide boilerplate code

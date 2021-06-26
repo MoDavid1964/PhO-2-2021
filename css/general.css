@@ -1,0 +1,24 @@
+/* General styling */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Header spacing */
+.header-space {
+    display: block;
+
+    width: 100vw;
+    height: 5.5vw;
+}
