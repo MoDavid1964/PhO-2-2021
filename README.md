@@ -28,12 +28,15 @@ The problems included in the competition will be drafted by members of the PYHS.
 ### Contribute
 
 Want to contribute to the project? Send an email to one of these accounts
+
 > b2023mmdavid@pshs.edu.ph
+
 > b2022ermartinez@pshs.edu.ph
 
 or a discord request to either
 
 > 3md#0784
+
 > rgm#4317
 
 for more information on the project and what you can do.
