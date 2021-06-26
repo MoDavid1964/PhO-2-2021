@@ -8,11 +8,15 @@ PIPHO is a planned upcoming competition which aims to promote an interest in phy
 
 The content management system (CMS) for PIPHO 2022 is custom-built and in-development. If you wish to contribute to the project, contact one of the developers listed below.
 
-You can currently visit the site at http://pipho.000webhostapp.com/, although it will be migrated to a better hosting platform as soon as the site is finalized.
+You can currently visit the site by clicking [here](http://pipho.000webhostapp.com/), although it will be migrated to a better hosting platform as soon as the site is finalized.
 
 ##### Initial Plan
 
 The CMS manages two types of user account: admin accounts and participant accounts. The former possesses priviliges which allow them to modify the database storing various resources and PIPHO data. The latter are users taking part in the competition, and have access only to the lower-level functionalities of the site. Note that a teaming system is yet to be implemented for the site.
+
+##### Canva Draft
+
+The interface of the CMS is currently being drafted via canva. The link to the initial design of a handful of pages may be visited [here](https://www.canva.com/design/DAEicz5DcKQ/P2l9i94m9-8gskJTZl8umw/view?utm_content=DAEicz5DcKQ&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton).
 
 ##### Progress
 
