@@ -17,7 +17,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Register for TTPHO</title>
+        <title>Register for PIPHO</title>
     </head>
     <body>
         <canvas class="canvas fullscreen"></canvas>
@@ -83,7 +83,7 @@
         // Js files
         include("js", "../../js/headers/loop.h.js");
         include("js", "../../js/headers/canvas.h.js");
-        include("js", "../../js/headers/fonts.h.js");
+        include("js", "../../js/headers/scheme.h.js");
         include("js", "../../js/libs/gl.lib.js");
         include("js", "../../js/bg.js");
     </script>

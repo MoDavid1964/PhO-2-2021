@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Welcome to TTPHO</title>
+        <title>Welcome to PIPHO</title>
     </head>
     <body>
         <nav class="nav">
@@ -19,7 +19,7 @@
                 <div class="nav-title-container">
                     <div class="nav-title">
                         <div class="nav-title-href">
-                            <a class="nav-title-href-link" href="/">TTPHO 2021</a>
+                            <a class="nav-title-href-link" href="/">PIPHO 2022</a>
                         </div>
                     </div>
                 </div>

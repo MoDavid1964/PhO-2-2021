@@ -17,7 +17,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Sign In to TTPHO</title>
+        <title>Sign In to PIPHO</title>
     </head>
     <body>
         <canvas class="canvas fullscreen"></canvas>

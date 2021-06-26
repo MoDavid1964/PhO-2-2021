@@ -14,7 +14,7 @@ const FONTS = {
     "main-title-font": "Staatliches",
     "main-text-font": "Lato",
     "alt-title-font": "?",
-    "alt-text-font": "Times New Roman",
+    "alt-text-font": "?",
     "form-input-font": "Roboto Mono",
 };
 
@@ -62,6 +62,7 @@ const ACCENTS = {
 
     // Set the css variables to their respective font families
     for(let i = 0; i < font_keys.length; i++){
+        if(FONTS[font_keys[i]] == "?") continue;
         document.documentElement.style.setProperty(
             `--${font_keys[i]}`, FONTS[font_keys[i]]);
     }
