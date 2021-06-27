@@ -26,47 +26,55 @@
                         <div class="content-pane-category-title">
                             <div class="content-pane-category-title-text">
                                 <a class="content-pane-category-title-text-href" 
-                                    href="#" onclick="">
+                                    href="#account" onclick="">
                                     Account
                                 </a>
                             </div>
                         </div>
                     </div>
+                    <?php
+                        if(!$ADMIN){
+                        echo "<div class=\"content-pane-category\">
+                                <div class=\"content-pane-category-title\">
+                                    <div class=\"content-pane-category-title-text\">
+                                        <a class=\"content-pane-category-title-text-href\"
+                                            href=\"#team\" onclick=\"\">
+                                            Team
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>";
+                        }
+                    ?>
                     <div class="content-pane-category">
                         <div class="content-pane-category-title">
                             <div class="content-pane-category-title-text">
                                 <a class="content-pane-category-title-text-href"
-                                    href="#" onclick="">
-                                    Team
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="content-pane-category">
-                        <div class="content-pane-category-title">
-                            <div class="content-pane-category-title-text">
-                                <a class="content-pane-category-title-text-href"
-                                    href="#" onclick="">
+                                    href="#preferences" onclick="">
                                     Preferences
                                 </a>
                             </div>
                         </div>
                     </div>
+                    <?php
+                        if(!$ADMIN){
+                        echo "<div class=\"content-pane-category\">
+                                <div class=\"content-pane-category-title\">
+                                    <div class=\"content-pane-category-title-text\">
+                                        <a class=\"content-pane-category-title-text-href\"
+                                            href=\"#statistics\" onclick=\"\">
+                                            Statistics
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>";
+                        }
+                    ?>
                     <div class="content-pane-category">
                         <div class="content-pane-category-title">
                             <div class="content-pane-category-title-text">
                                 <a class="content-pane-category-title-text-href" 
-                                    href="#" onclick="">
-                                    Statistics
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="content-pane-category">
-                        <div class="content-pane-category-title">
-                            <div class="content-pane-category-title-text">
-                                <a class="content-pane-category-title-text-href" 
-                                    href="#" onclick="">
+                                    href="#logout" onclick="">
                                     Logout
                                 </a>
                             </div>

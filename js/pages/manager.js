@@ -17,6 +17,47 @@ function clearInterface(){
         INTERFACE.removeChild(INTERFACE.children[i]);
 }
 
+function confirmAction(title, message, callback, params){
+    let dialog = new DIALOG(
+        title, message, {
+        confirm: {
+            name: "confirm",
+            background: "rgba(50, 50, 50, 1)",
+            hover: "rgba(75, 75, 100, 1)",
+            callback: `(function(dialog){
+                ${callback}(${params.join(',')});
+                dialog.close();
+            })`,
+        },
+        cancel: {
+            name: "cancel",
+            background: "rgba(240, 30, 60, 1)",
+            hover: "rgba(255, 50, 90, 1)",
+            callback: `(function(dialog){
+                dialog.close()
+            })`,
+        }
+    }).open();
+}
+
+// Actions for editing users
+function editUser(action, user_id){
+    switch(action){
+
+        // Toggle admin privileges
+        case 0:
+            alert('toggleAdmin');
+            break;
+
+        // Delete the specified user
+        case 1:
+
+            break;
+    }
+
+    alert();
+}
+
 // Generates the user list table
 function generateUsers(){
 
@@ -55,11 +96,28 @@ function generateUsers(){
                 let user_table_entry = document.createElement("tr");
                 user_table_entry.className = "content-interface-body-user-table-entry data-table-entry";
                 user_table_entry.innerHTML = `
-                    <td class="entry-user-id-name entry-button" colspan="2"><a href="#">
-                        <div>${data[i].user_id}</div><div>${data[i].user_name}</div></a></td>
+                    <td class="entry-user-id-name entry-button" colspan="2">
+                        <a href="#users">
+                            <div>${data[i].user_id}</div>
+                            <div>${data[i].user_name}</div>
+                        </a>
+                    </td>
                     <td class="entry-user-isadmin-${data[i].user_isAdmin ? "y" : "n"} entry-button">
-                        <a href="#">toggle: ${data[i].user_isAdmin ? "y" : "n"}</a></td>
-                    <td class="entry-user-delete entry-button"><a href="#">delete user</a></td>`;
+                        <a href="#users" onclick="confirmAction('Warning!', 
+                            '${data[i].user_isAdmin ? 
+                                "The selected user will no longer be an admin." :
+                                "The selected user will be given admin priviliges."}',
+                            'editUser', [0, ${data[i].user_id}])">
+                                toggle: ${data[i].user_isAdmin ? "y" : "n"}
+                        </a>
+                    </td>
+                    <td class="entry-user-delete entry-button">
+                        <a href="#users" onclick="confirmAction('Warning!', 
+                            'The selected user will be deleted. Note that this action is permanent.',
+                            'editUser', [1, ${data[i].user_id}])">
+                                delete user
+                        </a>
+                    </td>`;
 
                 user_table.appendChild(user_table_entry);
             }

@@ -5,6 +5,7 @@ const DIALOG = (function(){
         this.title = title;
         this.message = message;
         this.options = options;
+        this.boolean = false;
     };
 
     // Open the dialog box
@@ -76,6 +77,15 @@ const DIALOG = (function(){
 
         // Reset window.ref
         window.dialog = null;
+    }
+
+    // Functions for determining the state of the dialog 
+    dialog.prototype.setTrue = function(){
+        this.boolean = true;
+    }
+
+    dialog.prototype.setFalse = function(){
+        this.boolean = false;
     }
 
     return dialog;

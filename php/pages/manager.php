@@ -32,7 +32,7 @@
                         <div class="content-pane-category-title">
                             <div class="content-pane-category-title-text">
                                 <a class="content-pane-category-title-text-href" 
-                                    href="#" onclick="">
+                                    href="#users" onclick="">
                                     Users
                                 </a>
                             </div>
@@ -42,7 +42,7 @@
                         <div class="content-pane-category-title">
                             <div class="content-pane-category-title-text">
                                 <a class="content-pane-category-title-text-href"
-                                    href="#" onclick="">
+                                    href="#teams" onclick="">
                                     Teams
                                 </a>
                             </div>
@@ -52,7 +52,7 @@
                         <div class="content-pane-category-title">
                             <div class="content-pane-category-title-text">
                                 <a class="content-pane-category-title-text-href"
-                                    href="#" onclick="">
+                                    href="#problems" onclick="">
                                     Problems
                                 </a>
                             </div>
@@ -62,7 +62,7 @@
                         <div class="content-pane-category-title">
                             <div class="content-pane-category-title-text">
                                 <a class="content-pane-category-title-text-href" 
-                                    href="#" onclick="">
+                                    href="#reponses" onclick="">
                                     Responses
                                 </a>
                             </div>
@@ -72,7 +72,7 @@
                         <div class="content-pane-category-title">
                             <div class="content-pane-category-title-text">
                                 <a class="content-pane-category-title-text-href"
-                                    href="#" onclick="">
+                                    href="#scores" onclick="">
                                     Scores
                                 </a>
                             </div>
@@ -129,6 +129,7 @@
     <script>
         // Css files
         include("css", "../../css/general.css");
+        include("css", "../../css/dialog.css");
         include("css", "../../css/pages/manager.css");
 
         // Js files
