@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>404 Not Found</title>
+        <title>403 Forbidden</title>
     </head>
     <body>
         <div class="content">
             <div class="content-title-container">
                 <div class="content-title">
                     <div class="content-title-text">
-                        404 Not Found
+                        403 Forbidden
                     </div>
                 </div>
             </div>
             <div class="content-desc-container">
                 <div class="content-desc">
                     <div class="content-desc-text">
-                        The resource you were trying to look for does not exist.
+                        You are not authorized to view the resource you specified.
                     </div>
                 </div>
             </div>

@@ -19,6 +19,10 @@
                     </div>
                 </div>
             </div>
+            <div class="content-error-image-container">
+                <div class="content-error-image">
+                </div>
+            </div>
         </div>
     </body>
 

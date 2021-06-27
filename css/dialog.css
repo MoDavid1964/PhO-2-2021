@@ -17,7 +17,6 @@
     z-index: 2;
 
     width: 20vw;
-    height: 16vw;
 
     background: white;
     transform: translate(-50%, -50%);
@@ -38,10 +37,12 @@
     position: relative;
     display: inline-block;
     top: 50%; left: 2vw;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
 
     font-family: var(--main-title-font);
-    font-size: 4vw;
-    transform: translate(0, -40%);
+    font-size: var(--title-size-relative);
+    transform: translate(0, 0);
 }
 
 .dialog-box-body-text-container {
@@ -62,7 +63,7 @@
     top: 50%; left: 50%;
 
     font-family: var(--main-text-font);
-    font-size: 1vw;
+    font-size: var(--text-size-relative);
     transform: translate(-50%, -50%);
 }
 

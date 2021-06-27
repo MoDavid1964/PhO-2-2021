@@ -31,8 +31,8 @@
 }
 
 .nav-title {
-    padding-top: 0.3vw;
-    font-size: 4vw;
+    padding-top: calc(1.8vw - var(--title-size-offset-relative));
+    font-size: var(--title-size-relative);
 }
 
 a.nav-title-href-link {
@@ -54,14 +54,14 @@ a.nav-title-href-link:hover {
     display: flex;
     flex-direction: row-reverse;
 
-    font-size: 4vw;
+    font-size: var(--title-size-relative);
 }
 
 .nav-buttons-button {
     height: 20px;
 
-    padding-right: 2.25vw;
-    padding-top: 0.3vw;
+    padding-right: 2.75vw;
+    padding-top: calc(1.8vw - var(--title-size-offset-relative));
 }
 
 a.nav-buttons-button-link {

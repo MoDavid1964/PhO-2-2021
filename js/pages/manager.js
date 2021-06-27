@@ -42,20 +42,34 @@ function confirmAction(title, message, callback, params){
 
 // Actions for editing users
 function editUser(action, user_id){
+
+    // Parameter string
+    let parameters = "";
+    for(let i = 2; i < arguments.length; i++)
+        parameters += `params[${i-2}]=${arguments[i]}&`;
+    parameters = parameters.substr(0, parameters.length - 1);
+
     switch(action){
 
         // Toggle admin privileges
         case 0:
-            alert('toggleAdmin');
+            fetch(`../../php/handlers/user-edit.handle.php?`+
+                `user_id=${user_id}&action=admin&${parameters}`)
+                .then(response => response.json())
+                .then(data => console.log(data)).catch();
             break;
 
         // Delete the specified user
         case 1:
-
+            fetch(`../../php/handlers/user-edit.handle.php?`+
+                `user_id=${user_id}&action=delete`)
+                .then(response => response.json())
+                .then(data => console.log(data)).catch();
             break;
     }
 
-    alert();
+    // Reload the window to reflect changes
+    window.location.reload();
 }
 
 // Generates the user list table
@@ -107,7 +121,7 @@ function generateUsers(){
                             '${data[i].user_isAdmin ? 
                                 "The selected user will no longer be an admin." :
                                 "The selected user will be given admin priviliges."}',
-                            'editUser', [0, ${data[i].user_id}])">
+                            'editUser', [0, ${data[i].user_id}, ${data[i].user_isAdmin ? 0 : 1}])">
                                 toggle: ${data[i].user_isAdmin ? "y" : "n"}
                         </a>
                     </td>

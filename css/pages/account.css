@@ -35,7 +35,7 @@
     top: 50%; left: 12%;
 
     font-family: var(--main-text-font);
-    font-size: 1.6vw;
+    font-size: var(--subtitle-size-relative);
     font-weight: bold;
     transform: translate(0, -50%);
 }
@@ -90,7 +90,7 @@ a.content-pane-category-title-text-href:hover {
     top: 50%; left: 2.5vw;
 
     font-family: var(--main-title-font);
-    font-size: 4vw;
+    font-size: var(--title-size-relative);
     transform: translate(0, -50%);
 }
 
@@ -100,16 +100,13 @@ a.content-pane-category-title-text-href:hover {
     top: 0; left: 2.5vw;
 
     font-family: var(--main-text-font);
-    font-size: 1vw;
+    font-size: var(--subtitle3-size-relative);
     transform: translate(0, -50%);
 }
 
 .content-interface-body-container {
     position: relative;
     padding-left: 2.5vw;
-}
-
-.content-interface-body {
 }
 
 .content-interface-scrollbar {

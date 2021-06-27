@@ -7,9 +7,9 @@
     include_once "../includes/paths.inc.php";
     include_once filepath("database");
     include_once filepath("session");
-        
+
     // Wrong request protocol
-    if($_SERVER["REQUEST_METHOD"] != "GET") 
+    if($_SERVER["REQUEST_METHOD"] != "GET")
         header("location: /");
 
     // Unauthorized
@@ -23,37 +23,67 @@
     // Define the user input and the sql query
     $user_id = trim($_GET["user_id"]);
     $action = trim($_GET["action"]);
+    $params = [];
 
-    $query = "SELECT user_id, user_name, user_email, user_isAdmin 
-        FROM users WHERE user_id = ?";
+    // Cant edit yourself
+    if($_SESSION["user_id"] == $user_id)
+        exit;
+
+    if(isset($_GET["params"]))
+        $params = $_GET["params"];
+
+    // Possible actions
+    $query_delete = "DELETE FROM users WHERE user_id = ?";
+    $query_admin = "UPDATE users SET user_isAdmin = ? WHERE user_id = ?";
+    $query = "";
+
+    switch($action){
+        case "admin":
+            $query = $query_admin;
+            break;
+        case "delete":
+            $query = $query_delete;
+            break;
+    }
+
+    // Binds the parameters, given their arbitrary nature
+    function bindParameters($statement, $params, $user_id){
+        $type_string = "";
+
+        for($i = 0; $i < sizeof($params); $i++){
+            switch(gettype($params[$i])){
+                case "integer":
+                    $type_string.="i";
+                    break;
+                case "string":
+                    $type_string.="s";
+                    break;
+            }
+        }
+
+        mysqli_stmt_bind_param($statement, 
+            "i".$type_string, ...[...$params, $user_id]);
+    }
 
     // A bunch of attempts to do the fckin statement
     if($statement = mysqli_prepare($LINK, $query)){
-        mysqli_stmt_bind_param($statement, "i", $user_id);
+
+        // Specify and bind the parameters to the query
+        if(sizeof($params) > 0){
+            bindParameters($statement, $params, $user_id);
+        } else {
+            mysqli_stmt_bind_param($statement, "i", $user_id);
+        }
 
         // Execute the statement
         if(mysqli_stmt_execute($statement)){
-            mysqli_stmt_store_result($statement);
-
-            if(mysqli_stmt_num_rows($statement) > 0){
-                mysqli_stmt_bind_result($statement, 
-                    $user_id, $user_name, $user_email, $user_isAdmin);
-
-                // Fetch the data
-                if(mysqli_stmt_fetch($statement)){
-
-                    // Send the response
-                    echo json_encode([
-                        "user_id" => $user_id,
-                        "user_name" => $user_name,
-                        "user_email" => $user_email,
-                        "user_isAdmin" => $user_isAdmin,   
-                    ]);
-                }
-            }
         } else {
             header("HTTP/1.1 500 Internal Server Error");
             exit;
         }
     }
+
+    echo json_encode((object)[
+        "test" => "testvalue"
+    ]);
 ?>

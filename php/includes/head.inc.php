@@ -27,16 +27,13 @@
                     <div class="nav-buttons">
                         <?php
                             if(!$SESSION){
-                                echo "<div class=\"nav-buttons-button register-button\">
-                                    <a class=\"nav-buttons-button-link\" href=\"/php/pages/register.php\">Register</a>
-                                </div>
-                                <div class=\"nav-buttons-button login-button\">
+                                echo "<div class=\"nav-buttons-button login-button\">
                                     <a class=\"nav-buttons-button-link\" href=\"/php/pages/login.php\">Login</a>
                                 </div>";
                             } else {
                                 if(!$ADMIN){
                                     echo "<div class=\"nav-buttons-button account-button\">
-                                        <a class=\"nav-buttons-button-link\" href=\"/php/pages/account.php\">Account</a>
+                                        <a class=\"nav-buttons-button-link\" href=\"/php/handlers/logout.handle.php\">Logout</a>
                                     </div>
                                     <div class=\"nav-buttons-button forum-button\">
                                         <a class=\"nav-buttons-button-link\" href=\"/php/pages/forum.php\">Forum</a>
@@ -46,7 +43,7 @@
                                     </div>";
                                 } else {
                                     echo "<div class=\"nav-buttons-button account-button\">
-                                        <a class=\"nav-buttons-button-link\" href=\"/php/pages/account.php\">Account</a>
+                                        <a class=\"nav-buttons-button-link\" href=\"/php/handlers/logout.handle.php\">Logout</a>
                                     </div>
                                     <div class=\"nav-buttons-button forum-button\">
                                         <a class=\"nav-buttons-button-link\" href=\"/php/pages/forum.php\">Forum</a>
