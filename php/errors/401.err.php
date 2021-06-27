@@ -29,6 +29,6 @@
         include("css", "../../css/templates/errors.css");
 
         // Js files
-        include("js", "../../js/headers/fonts.h.js");
+        include("js", "../../js/headers/scheme.h.js");
     </script>
 </html>

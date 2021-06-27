@@ -46,3 +46,8 @@ const CANVAS = (function(){
 
     return cnv;
 })();
+
+// Means the script has succesfully been loaded
+(function(){
+    window.PROCEED = true;
+})();

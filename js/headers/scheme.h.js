@@ -79,3 +79,8 @@ const ACCENTS = {
             `--${accent_keys[i]}`, ACCENTS[accent_keys[i]]);
     }
 })();
+
+// Means the script has succesfully been loaded
+(function(){
+    window.PROCEED = true;
+})();

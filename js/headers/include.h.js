@@ -6,7 +6,7 @@
 */
 
 // Creates the link element to retrieve fonts
-function include(type, resource){
+async function include(type, resource){
 
     // The head element
     let head = document.getElementsByTagName("head")[0];
@@ -14,7 +14,7 @@ function include(type, resource){
     let id = resource.split("/")[resource.split("/").length - 1];
     
     // In case already included
-    if(document.getElementById(id)) return;
+    if(element = document.getElementById(id)) return;
 
     switch(type){
 
@@ -37,7 +37,14 @@ function include(type, resource){
             script.src = resource;
 
             body.appendChild(script);
-            break;
+
+            let promise = await new Promise((resolve, reject) => {
+                const timeout = setTimeout(() => {
+                    resolve();
+                }, 500);
+            });
+
+            return promise;
 
         // It aint js or css
         default:

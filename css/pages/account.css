@@ -1,0 +1,129 @@
+/* Account pane styling */
+.content-pane-container {
+    position: fixed;
+    top: 0; left: 0;
+    z-index: -1;
+
+    width: 16vw;
+    height: 100vh;
+}
+
+.content-pane {
+    position: relative;
+    top: 0; left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgb(222, 222, 222);
+    box-shadow: inset -50px -360px 125px -10px rgb(255, 255, 255);
+}
+
+.content-pane-category {
+    width: 100%;
+    height: 3.6vw;
+}
+
+.content-pane-category-title {
+    width: 100%;
+    height: 100%;
+}
+
+.content-pane-category-title-text {
+    display: inline-block;
+    position: relative;
+    top: 50%; left: 12%;
+
+    font-family: var(--main-text-font);
+    font-size: 1.6vw;
+    font-weight: bold;
+    transform: translate(0, -50%);
+}
+
+a.content-pane-category-title-text-href {
+    color: black;
+    text-decoration: none;
+}
+
+a.content-pane-category-title-text-href:hover {
+    color: rgb(80, 60, 255);
+}
+
+/* Account interface styling */
+.content-interface-container {
+    position: fixed;
+    top: 0; left: 16vw;
+    z-index: -2;
+
+    width: 100%;
+    height: 100%;
+}
+
+.content-interface {
+    display: block;
+    position: absolute;
+    width: 84vw;
+}
+
+.content-interface-header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 10vw;
+}
+
+.content-interface-header-title {
+    position: relative;
+    flex-grow: 5;
+    width: 100%;
+}
+
+.content-interface-header-subtitle {
+    position: relative;
+    flex-grow: 2;
+    width: 100%;
+}
+
+.content-interface-header-title-text {
+    display: inline-block;
+    position: relative;
+    top: 50%; left: 2.5vw;
+
+    font-family: var(--main-title-font);
+    font-size: 4vw;
+    transform: translate(0, -50%);
+}
+
+.content-interface-header-subtitle-text {
+    display: inline-block;
+    position: relative;
+    top: 0; left: 2.5vw;
+
+    font-family: var(--main-text-font);
+    font-size: 1vw;
+    transform: translate(0, -50%);
+}
+
+.content-interface-body-container {
+    position: relative;
+    padding-left: 2.5vw;
+}
+
+.content-interface-body {
+}
+
+.content-interface-scrollbar {
+    position: fixed;
+    top: 5.5vw; right: 0;
+
+    width: 10px; height: 100vh;
+    background: rgba(210, 210, 210, 1);
+}
+
+.content-interface-scrollbar-bar {
+    position: fixed;
+    top: 5.5vw; right: 0;
+
+    width: 10px; height: 200px;
+    background: rgba(175, 175, 175, 1);
+}

@@ -22,9 +22,6 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Admin Control Panel</title>
-    </head>
     <body>
         <div class="content">
             <div class="content-pane-container">
@@ -82,29 +79,37 @@
                         </div>
                     </div>
                 </div>
-            </div">
+            </div>
             <div class="content-interface-container">
+                <whitespace class="header-space">
+                </whitespace>
                 <div class="content-interface">
                     <div class="content-interface-header">
                         <div class="content-interface-header-title">
                             <div class="content-interface-header-title-text">
-                                Welcome to the Control Panel!
+                                Users
                             </div>
-                            <div class="content-interface-header-title-subtext">
-                                Click on one of the categories on the left<br>
-                                to be able to perform further actions.
+                        </div>
+                        <div class="content-interface-header-subtitle">
+                            <div class="content-interface-header-subtitle-text">
+                                Edit user priviliges and details here.
                             </div>
                         </div>
                     </div>
-                    <div class="content-interface-body">
-                        
+                    <div class="content-interface-body-container">
+                        <div class="content-interface-body">
+                        </div>
                     </div>
+                </div>
+                <div class="content-interface-scrollbar">
+                    <div class="content-interface-scrollbar-bar"></div>
                 </div>
             </div>
             <div class="content-inspector-container">
+                <whitespace class="header-space">
+                </whitespace>
                 <div class="content-inspector">
-                    <whitespace class="header-space">
-                    </whitespace><br><br>
+                    <br><br>
                     <div class="content-inspector-header">
                         <div class="content-inspector-header-title">
                             <div class="content-inspector-header-title-text">
@@ -112,7 +117,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="content-interface-body">
+                    <div class="content-inspector-body">
                         
                     </div>
                 </div>
@@ -127,10 +132,14 @@
         include("css", "../../css/pages/manager.css");
 
         // Js files
-        include("js", "../../js/headers/scheme.h.js");
+        include("js", "../../js/headers/scroll.h.js")
+            .then(() => {include("js", "../../js/headers/loop.h.js")})
+            .then(() => {include("js", "../../js/headers/dialog.h.js")})
+            .then(() => {include("js", "../../js/headers/scheme.h.js")})
+            .then(() => {include("js", "../../js/pages/manager.js")})
+            .catch(error => console.error(error));
 
-        fetch("../../php/handlers/user-list.handle.php?start_id=0&limit=5")
-            .then(response => response.json())
-            .then(data => console.log(data[0]["user_name"]));
+        // Set document title
+        document.getElementsByTagName("title")[0].innerHTML = "Admin Control Panel";
     </script>
 </html>

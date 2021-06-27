@@ -69,10 +69,11 @@
         include("css", "../../css/pages/login.css");
 
         // Js files
-        include("js", "../../js/headers/loop.h.js");
-        include("js", "../../js/headers/canvas.h.js");
-        include("js", "../../js/headers/scheme.h.js");
-        include("js", "../../js/libs/bg.lib.js");
-        include("js", "../../js/bg.js");
+        include("js", "../../js/headers/loop.h.js")
+            .then(include("js", "../../js/headers/canvas.h.js"))
+            .then(include("js", "../../js/headers/scheme.h.js"))
+            .then(include("js", "../../js/libs/gl.lib.js"))
+            .then(include("js", "../../js/bg.js"))
+            .catch(error => console.error(error));
     </script>
 </html>

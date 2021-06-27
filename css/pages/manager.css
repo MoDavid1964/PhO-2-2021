@@ -51,22 +51,171 @@ a.content-pane-category-title-text-href:hover {
 
 /* Control panel interface styling */
 .content-interface-container {
-    display: block;
     position: fixed;
+    top: 0; left: 16vw;
+    z-index: -2;
 
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 }
 
 .content-interface {
     display: block;
     position: absolute;
-    top: 0; left: 16vw;
-
     width: 56vw;
-    height: 100vh;
+}
 
-    background: red;
+.content-interface-header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 10vw;
+}
+
+.content-interface-header-title {
+    position: relative;
+    flex-grow: 5;
+    width: 100%;
+}
+
+.content-interface-header-subtitle {
+    position: relative;
+    flex-grow: 2;
+    width: 100%;
+}
+
+.content-interface-header-title-text {
+    display: inline-block;
+    position: relative;
+    top: 50%; left: 2.5vw;
+
+    font-family: var(--main-title-font);
+    font-size: 4vw;
+    transform: translate(0, -50%);
+}
+
+.content-interface-header-subtitle-text {
+    display: inline-block;
+    position: relative;
+    top: 0; left: 2.5vw;
+
+    font-family: var(--main-text-font);
+    font-size: 1vw;
+    transform: translate(0, -50%);
+}
+
+.content-interface-body-container {
+    position: relative;
+    padding-left: 2.5vw;
+}
+
+.content-interface-scrollbar {
+    position: fixed;
+    top: 5.5vw; right: 28vw;
+
+    width: 10px; height: 100vh;
+    background: rgba(210, 210, 210, 1);
+}
+
+.content-interface-scrollbar-bar {
+    position: fixed;
+    top: 5.5vw; right: 28vw;
+
+    width: 10px; height: 200px;
+    background: rgba(175, 175, 175, 1);
+}
+
+/* Different table formattings */
+.data-table {
+    width: 92%;
+    border: none;
+    border-collapse: collapse;
+}
+
+.data-table-header-entry>th {
+    padding: 0.5vw;
+    padding-bottom: 1vw;
+
+    font-family: var(--main-text-font);
+    font-size: 1.6vw;
+}
+
+.data-table-entry>td {
+    padding: 0.5vw;
+
+    font-family: var(--form-input-font);
+    font-size: 0.8vw;
+}
+
+.data-table-entry:nth-child(even) {
+    background: rgba(75, 125, 200, 0.075);
+}
+
+/* Clickable entry buttons */
+.entry-button>a {
+    display: inline-block;
+    width: 100%;
+
+    padding-top: 0.6vw;
+    padding-bottom: 0.5vw;
+    border-radius: 0.25vw;
+
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* Users table */
+.entry-user-id-name>a {
+    color: black;
+}
+
+.entry-user-id-name>a>div {
+    display: inline-block;
+    width: 50%;
+    text-align: left;
+}
+
+.entry-user-id-name>a>div:first-child {
+    text-align: left;
+    padding-left: 10%;
+}
+
+.entry-user-id-name>a>div:last-child {
+    text-align: center;
+    margin-left: -5%;
+}
+
+.entry-user-id-name>a>div {
+    display: inline-block;
+    width: 50%;
+}
+
+.entry-user-isadmin-y>a {
+    background: rgba(50, 100, 200, 1);
+    color: white;
+}
+
+.entry-user-isadmin-y>a:hover {
+    background: rgba(75, 125, 225, 1);
+}
+
+.entry-user-isadmin-n>a {
+    background: rgba(50, 50, 50, 1);
+    color: white;
+}
+
+.entry-user-isadmin-n>a:hover {
+    background: rgba(75, 75, 100, 1);
+}
+
+.entry-user-delete>a {
+    background: rgba(240, 30, 60, 1);
+    color: white;
+}
+
+.entry-user-delete>a:hover {
+    background: rgba(255, 50, 90, 1);
 }
 
 /* Control panel inspector styling */

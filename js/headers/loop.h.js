@@ -21,3 +21,8 @@ const LOOP = (function(){
 
     return loop;
 })();
+
+// Means the script has succesfully been loaded
+(function(){
+    window.PROCEED = true;
+})();

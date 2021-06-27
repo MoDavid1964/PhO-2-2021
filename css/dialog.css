@@ -1,0 +1,105 @@
+/* Dialog styling */
+.dialog-blackout {
+    position: fixed;
+    z-index: 1;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.dialog-box {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%; left: 50%;
+    z-index: 2;
+
+    width: 20vw;
+    height: 16vw;
+
+    background: white;
+    transform: translate(-50%, -50%);
+}
+
+.dialog-box-header {
+    display: block;
+    flex-grow: 1;
+}
+
+.dialog-box-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 3;
+}
+
+.dialog-box-header-text {
+    position: relative;
+    display: inline-block;
+    top: 50%; left: 2vw;
+
+    font-family: var(--main-title-font);
+    font-size: 4vw;
+    transform: translate(0, -40%);
+}
+
+.dialog-box-body-text-container {
+    display: block;
+    flex-grow: 12;
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+.dialog-box-body-buttons-container {
+    display: block;
+    flex-grow: 1;
+}
+
+.dialog-box-body-text {
+    position: relative;
+    display: inline-block;
+    top: 50%; left: 50%;
+
+    font-family: var(--main-text-font);
+    font-size: 1vw;
+    transform: translate(-50%, -50%);
+}
+
+.dialog-box-body-buttons {
+    display: flex;
+    flex-direction: row;
+
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-bottom: 0.5vw;
+
+    width: 100%;
+    height: 100%;
+}
+
+.dialog-box-body-buttons-option {
+    flex-grow: 1;
+    width: 50%;
+}
+
+.option-button {
+    width: 100%;
+    height: 100%;
+    padding: 1vw;
+}
+
+.option-button>a {
+    display: inline-block;
+    padding: 0.4vw;
+    border-radius: 0.25vw;
+    width: 100%;
+    height: 100%;
+
+    font-family: var(--form-input-font);
+    font-size: 0.8vw;    
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+}

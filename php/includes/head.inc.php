@@ -72,6 +72,7 @@
         include("css", "../../css/nav.css");
 
         // Js files
-        include("js", "../../js/headers/scheme.h.js");
+        include("js", "../../js/headers/scheme.h.js")
+            .then().catch(error => console.error(error));
     </script>
 </html>

@@ -6,10 +6,15 @@
 
     include_once "../includes/paths.inc.php";
     include_once filepath("database");
+    include_once filepath("session");
         
     // Wrong request protocol
     if($_SERVER["REQUEST_METHOD"] != "GET") 
         header("location: /");
+
+    // Unauthorized
+    if(!$SESSION || !$ADMIN)
+        header("location: /php/errors/401.err.php");
 
     // Check whether or not the user input is filled
     if(!isset($_GET["start_id"])) exit;

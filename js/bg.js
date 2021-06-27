@@ -43,3 +43,7 @@ const BG = (function(){
     return bg;
 })();
 
+// Means the script has succesfully been loaded
+(function(){
+    window.PROCEED = true;
+})();
