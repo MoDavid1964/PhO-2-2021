@@ -12,7 +12,7 @@ You can currently visit the site by clicking [here](http://pipho.000webhostapp.c
 
 ##### Initial Plan
 
-The CMS manages two types of user account: admin accounts and participant accounts. The former possesses priviliges which allow them to modify the database storing various resources and PIPHO data. The latter are users taking part in the competition, and have access only to the lower-level functionalities of the site. Note that a teaming system is yet to be implemented for the site.
+The CMS manages two types of user account: admin accounts and participant accounts. The former possesses privileges which allow them to modify the database storing various resources and PIPHO data. The latter are users taking part in the competition, and have access only to the lower-level functionalities of the site. Note that a teaming system is yet to be implemented for the site.
 
 ##### Canva Draft
 

@@ -92,7 +92,7 @@
                         </div>
                         <div class="content-interface-header-subtitle">
                             <div class="content-interface-header-subtitle-text">
-                                Edit user priviliges and details here.
+                                Edit user privileges and details here.
                             </div>
                         </div>
                     </div>

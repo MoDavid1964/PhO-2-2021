@@ -1,7 +1,7 @@
 <?php
 /* 
     Handles requests for a list of the users
-    and their priviliges.
+    and their privileges.
 */
 
     include_once "../includes/paths.inc.php";
