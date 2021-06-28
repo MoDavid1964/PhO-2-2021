@@ -7,7 +7,7 @@
     width: 100vw; 
     height: 5.5vw;
 
-    background: rgb(255, 255, 255);
+    background: var(--main-accent-dark);
     box-shadow: 0 0 0.5vw 0.25vw rgba(0, 0, 0, 0.2);
 
     font-family: var(--main-title-font);
@@ -36,12 +36,12 @@
 }
 
 a.nav-title-href-link {
-    color: black;
+    color: var(--main-accent-light);
     text-decoration: none;
 }
 
 a.nav-title-href-link:hover {
-    color: rgb(80, 60, 255);
+    color: var(--secondary-accent-light);
 }
 
 /* Nav bar button styling */
@@ -65,10 +65,10 @@ a.nav-title-href-link:hover {
 }
 
 a.nav-buttons-button-link {
-    color: black;
+    color: var(--main-accent-light);
     text-decoration: none;
 }
 
 a.nav-buttons-button-link:hover {
-    color: rgb(80, 60, 255);
+    color: var(--secondary-accent-light)
 }

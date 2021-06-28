@@ -18,7 +18,7 @@
 
     width: 20vw;
 
-    background: white;
+    background: var(--main-accent-light);
     transform: translate(-50%, -50%);
 }
 
@@ -42,6 +42,7 @@
 
     font-family: var(--main-title-font);
     font-size: var(--title-size-relative);
+    color: var(--main-accent-dark);
     transform: translate(0, 0);
 }
 

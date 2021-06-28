@@ -29,7 +29,7 @@
                     <div class="interface-panel-form-title-container form-section">
                         <div class="interface-panel-form-title">
                             <div class="interface-panel-form-title-text">
-                                Sign in
+                                Login
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                             <div class="interface-panel-form-inputs-field">
                                 <div class="interface-panel-form-inputs-field-input-container">
                                     <button class="interface-panel-form-inputs-field-button" type="submit">
-                                        Sign in
+                                        login
                                     </button>
                                 </div> 
                             </div>

@@ -22,8 +22,8 @@ function confirmAction(title, message, callback, params){
         title, message, {
         confirm: {
             name: "confirm",
-            background: "rgba(50, 50, 50, 1)",
-            hover: "rgba(75, 75, 100, 1)",
+            background: ACCENTS["main-accent-dark"],
+            hover: ACCENTS["secondary-accent-dark"],
             callback: `(function(dialog){
                 ${callback}(${params.join(',')});
                 dialog.close();

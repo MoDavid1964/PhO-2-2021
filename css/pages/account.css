@@ -16,7 +16,7 @@
     height: 100%;
 
     background: rgb(222, 222, 222);
-    box-shadow: inset -50px -360px 125px -10px rgb(255, 255, 255);
+    box-shadow: inset -50px -360px 125px -10px var(--main-accent-light);
 }
 
 .content-pane-category {
@@ -46,7 +46,7 @@ a.content-pane-category-title-text-href {
 }
 
 a.content-pane-category-title-text-href:hover {
-    color: rgb(80, 60, 255);
+    color: var(--secondary-accent-dark);
 }
 
 /* Account interface styling */
@@ -57,6 +57,8 @@ a.content-pane-category-title-text-href:hover {
 
     width: 100%;
     height: 100%;
+
+    background: var(--main-accent-light);
 }
 
 .content-interface {
@@ -91,6 +93,7 @@ a.content-pane-category-title-text-href:hover {
 
     font-family: var(--main-title-font);
     font-size: var(--title-size-relative);
+    color: var(--main-accent-dark);
     transform: translate(0, -50%);
 }
 
@@ -101,6 +104,7 @@ a.content-pane-category-title-text-href:hover {
 
     font-family: var(--main-text-font);
     font-size: var(--subtitle3-size-relative);
+    color: var(--main-accent-dark);
     transform: translate(0, -50%);
 }
 

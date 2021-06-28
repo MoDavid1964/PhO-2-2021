@@ -16,7 +16,7 @@
     height: 100%;
 
     background: rgb(222, 222, 222);
-    box-shadow: inset -50px -360px 125px -10px rgb(255, 255, 255);
+    box-shadow: inset -50px -360px 125px -10px var(--main-accent-light);
 }
 
 .content-pane-category {
@@ -46,7 +46,7 @@ a.content-pane-category-title-text-href {
 }
 
 a.content-pane-category-title-text-href:hover {
-    color: rgb(80, 60, 255);
+    color: var(--secondary-accent-dark);
 }
 
 /* Control panel interface styling */
@@ -91,6 +91,7 @@ a.content-pane-category-title-text-href:hover {
 
     font-family: var(--main-title-font);
     font-size: var(--title-size-relative);
+    color: var(--main-accent-dark);
     transform: translate(0, -50%);
 }
 
@@ -192,21 +193,21 @@ a.content-pane-category-title-text-href:hover {
 }
 
 .entry-user-isadmin-y>a {
-    background: rgba(50, 100, 200, 1);
+    background: var(--secondary-accent-dark);
     color: white;
 }
 
 .entry-user-isadmin-y>a:hover {
-    background: rgba(75, 125, 225, 1);
+    background: var(--main-accent-dark);
 }
 
 .entry-user-isadmin-n>a {
-    background: rgba(50, 50, 50, 1);
+    background: var(--main-accent-dark);
     color: white;
 }
 
 .entry-user-isadmin-n>a:hover {
-    background: rgba(75, 75, 100, 1);
+    background: var(--secondary-accent-dark);
 }
 
 .entry-user-delete>a {

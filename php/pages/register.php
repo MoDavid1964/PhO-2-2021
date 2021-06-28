@@ -62,7 +62,7 @@
                             <div class="interface-panel-form-inputs-field">
                                 <div class="interface-panel-form-inputs-field-input-container">
                                     <button class="interface-panel-form-inputs-field-button" type="submit">
-                                        Register
+                                        register
                                     </button>
                                 </div> 
                             </div>

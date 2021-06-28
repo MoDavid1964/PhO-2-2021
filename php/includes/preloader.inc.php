@@ -11,16 +11,16 @@
         // The HTML template for the preloader
         echo "
             <div class='preloader' style='position: fixed; width: 100vw; 
-                height: 100vh; background: rgba(255, 255, 255, 0.8); z-index: 10;'>
+                height: 100vh; background: rgba(255, 255, 255, 0.8); z-index: 10; opacity: 0%;'>
                 <div class='preloader-dot-container' style='display: inline-block; 
-                    position: relative; top: 55%; left: 50%; transform: translate(-50%, -50%);'>
+                    position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%);'>
                 </div>
                 <div class='preloader-message-container' style='position: fixed; top: 0; 
                     width: 100vw; height: 100vh; padding: auto;'>
                     <div class='preloader-message' style='display: inline-block; 
                         position: relative; top: 40%; left: 50%; font-family: calibri; font-size: 100px;
                         font-weight: bold; letter-spacing: 5px; transform: translate(-50%, -50%); opacity: 75%;'>
-                        <i>LOADING</i>
+                        <i><!--LOADING--></i>
                     </div>
                 </div>
             </div>";
@@ -53,7 +53,7 @@
                     // Constantly update the preloader
                     let interval = setInterval(() => {
                         for(let i = 0; i < preloader_dots.length; i++){
-                            preloader_dots[i].style.background = `rgba(\${255 - i * 50}, 70, \${i * 50}, 1)`;
+                            preloader_dots[i].style.background = `rgba(0, 53, 84, 1)`;
                             preloader_dots[i].style.opacity = `\${Math.pow((getOffset(preloader_time, i)
                                  - 35) * 5, 3) / 10000}%`;
                             preloader_dots[i].style.width = `\${getOffset(preloader_time, i)}px`;
@@ -61,20 +61,28 @@
                             preloader_dots[i].style.marginBottom = `\${getOffset(preloader_time, i)}px`;
                             
                             if(preloader_goal)
-                            preloader_dots[i].style.marginBottom = `\${getOffset(preloader_time, i) * -20}px`;
+                                preloader_dots[i].style.marginBottom = 
+                                    `\${getOffset(preloader_time, i) * -20}px`;
                         }
 
                         if(preloader_goal){
-                            preloader.style.opacity = `\${100 - (preloader_time - preloader_goal) / 12 * 100}%`;
+                            preloader.style.opacity = 
+                                `\${100 - (preloader_time - preloader_goal) / 12 * 100}%`;
 
                             // End the pre_loader
                             if(Math.abs(preloader_time - preloader_goal) > 12){
                                 document.getElementsByTagName('body')[0].removeChild(preloader);
                                 clearInterval(interval);
                             }
+                        } else {
+                            preloader.style.opacity = 
+                                `\${100 - ((preloader_time) / 6 * 100) > 100 ? 
+                                    100 : (preloader_time) / 6 * 100}%`;
                         }
 
-                        preloader_message.style.opacity = `\${Math.sin(preloader_time / 10) * 15 + 30}%`;
+                        // Update the preloader constantly
+                        preloader_message.style.opacity = 
+                            `\${Math.sin(preloader_time / 10) * 15 + 30}%`;
                         preloader_time++;
                     }, 1000 / 60);
 

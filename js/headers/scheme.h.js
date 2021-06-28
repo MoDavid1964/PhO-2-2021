@@ -26,9 +26,9 @@ const SIZES = {
     "subtitle-size-relative": "1.5vw",
     "subtitle-size-absolute": "30px",
     "subtitle2-size-relative": "1.25vw",
-    "subtitle2-size-relative": "24px", 
+    "subtitle2-size-absolute": "24px", 
     "subtitle3-size-relative": "1vw",
-    "subtitle3-size-relative": "20px", 
+    "subtitle3-size-absolute": "20px", 
     "text-size-relative": "0.8vw",
     "text-size-absolute": "16px",
 };
@@ -42,11 +42,14 @@ const OFFSETS = {
 
 // A dictionary of the site's color accents
 const ACCENTS = {
-    "main-accent": "rgba()",
-    "sub-accent": "rgba()",
-    "third-accent": "rgba()",
-    "fourth-accent": "rgba()",
-    "fifth-accent": "rgba()",
+    "main-accent-dark": "rgba(0, 53, 84, 1)",
+    "main-accent-light": "rgba(246, 253, 255, 1)",
+    "secondary-accent-dark": "rgba(36, 181, 207, 1)",
+    "secondary-accent-light": "rgba(177, 248, 255, 1)",
+    "positive-accent-light": "rgba(80, 253, 209, 1)",
+    "negative-accent-light": "rgba(255, 181, 223, 1)",
+    "positive-accent-light-hover": "rgba(100, 255, 220, 1)",
+    "negative-accent-light-hover": "rgba(255, 200, 230, 1)",
 };
 
 // Creates the link element to retrieve fonts
