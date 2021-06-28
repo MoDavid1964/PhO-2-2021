@@ -6,6 +6,7 @@
 
     include_once "paths.inc.php";
     include_once filepath("session");
+    include_once filepath("php/includes/preloader.inc.php");
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +15,7 @@
         <title>Welcome to PIPHO</title>
     </head>
     <body>
+        <?php preloader(); ?>
         <nav class="nav">
             <div class="nav-container">
                 <div class="nav-title-container">

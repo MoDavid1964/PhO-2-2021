@@ -8,6 +8,7 @@
 
     include_once "../includes/paths.inc.php";
     include_once filepath("session");
+    include_once filepath("php/includes/preloader.inc.php");
 
     if($SESSION){
         route_home();
@@ -20,6 +21,7 @@
         <title>Register for PIPHO</title>
     </head>
     <body>
+        <?php preloader(); ?>
         <canvas class="canvas fullscreen"></canvas>
         <div class="interface">
             <div class="interface-panel">
