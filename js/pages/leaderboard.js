@@ -2,12 +2,12 @@
 (function(){
     let data_table; 
     let leaderboard_panel = new PANEL.instance('Leaderboard', 'leaderboard', 'left-side-panel', {
-        // 'tentative ranking - all': { redirect: '#Tentative-Ranking-All' },
-        // 'tentative ranking - jhs': { redirect: '#Tentative-Ranking-JHS' },
-        // 'tentative ranking - shs': { redirect: '#Tentative-Ranking-SHS' },
-        // 'final ranking - jhs': { redirect: '#Final-Ranking-JHS' },
-        // 'final ranking - shs': { redirect: '#Final-Ranking-SHS' },
-        // 'final ranking - all': { redirect: '#Final-Ranking-All' },
+        'tentative ranking - all': { redirect: '#Tentative-Ranking-All' },
+        'tentative ranking - jhs': { redirect: '#Tentative-Ranking-JHS' },
+        'tentative ranking - shs': { redirect: '#Tentative-Ranking-SHS' },
+        'final ranking - jhs': { redirect: '#Final-Ranking-JHS' },
+        'final ranking - shs': { redirect: '#Final-Ranking-SHS' },
+        'final ranking - all': { redirect: '#Final-Ranking-All' },
     });
 
     leaderboard_panel.init();
