@@ -10,5 +10,5 @@
     $_SESSION = array();
     session_destroy();
 
-    header("location: /");
+    redirect("/"); exit;
 ?>

@@ -1,7 +1,14 @@
+<?php
+	include_once "../handlers/logout.handle.php";
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <title>403 Forbidden</title>
+
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/pages/errors.css">
     </head>
     <body>
         <div class="content">
@@ -26,13 +33,5 @@
         </div>
     </body>
 
-    <script id="include.h.js" src="../../js/headers/include.h.js"></script>
-    <script>
-        // Css files
-        include("css", "../../css/general.css");
-        include("css", "../../css/templates/errors.css");
-
-        // Js files
-        include("js", "../../js/headers/scheme.h.js");
-    </script>
+    <script id="scheme.h.js" src="../../js/headers/scheme.h.js" defer></script>
 </html>

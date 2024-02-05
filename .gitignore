@@ -1,6 +1,7 @@
 # Ignore some default xampp files
 dashboard/
 img/
+scratchpad/
 webalizer/
 xampp/
 applications.html

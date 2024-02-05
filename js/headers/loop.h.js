@@ -11,18 +11,24 @@ const LOOP = (function(){
         processes: {},
     };
 
-    loop.execute = function(id, process, fps){
-        this.processes[id] = setInterval(process, 1000 / fps);
+    loop.create = function(id, process){
+
+        let processWrapper = function(){
+            // Execute the process and store the id of the result
+            process();
+
+            loop.processes[id] = 
+                requestAnimationFrame(processWrapper);
+        }
+
+        processWrapper();
     }
 
     loop.terminate = function(id){
-        clearInterval(this.processes[id]);
+        // Cancel the specified process
+        cancelAnimationFrame(loop.processes[id]);
     }
 
     return loop;
 })();
 
-// Means the script has succesfully been loaded
-(function(){
-    window.PROCEED = true;
-})();

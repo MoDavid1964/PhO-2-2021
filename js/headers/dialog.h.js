@@ -1,91 +1,158 @@
+/*
+    Allows instantiation of dialogs and stuffs
+    as well as general handling of dialogs.
+*/
+
 const DIALOG = (function(){
+    let dialog = {};
 
-    // Constructor
-    let dialog = function(title, message, options){
+    // Instantiable dialog
+    dialog.instance = function(title, name, options, fields, message){
         this.title = title;
-        this.message = message;
+        this.name = name;
         this.options = options;
-        this.boolean = false;
-    };
+        this.fields = fields;
+        this.message = message;
+    }
 
-    // Open the dialog box
-    dialog.prototype.open = function(){
-        this.blackout = document.createElement("div");
-        this.box = document.createElement("div");
-        let body = document.getElementsByTagName("body")[0];
+    // Some non-static methods
+    dialog.instance.prototype = {
 
-        this.blackout.className = "dialog-blackout";
-        this.box.className = "dialog-box";
+        // Initialization function for the dialog box
+        init: function(){
 
-        // The actual content
-        this.box.innerHTML = `
-            <div class="dialog-box-header">
-                <div class="dialog-box-header-text">
-                    ${this.title}
+            // Configure the blackout
+            this.blackout = document.createElement('div');
+            this.blackout.className = 'dialog-blackout';
+
+            // Dummy target
+            let target = document.getElementById('dummytarget');
+            let name = this.name;
+
+            if(!target){
+                target = document.createElement('iframe');
+                target.style.display = 'none';
+                target.name = 'dummytarget';
+                target.onload = () => {
+                    let response = JSON.parse(target.contentWindow.document.body.innerHTML);
+
+                    if(response.success) return new WARNING.instance("Success!", 'success', `${name}-success`, response.response) && setTimeout(() => {
+                        window.location.reload();
+                    }, 1250);
+                    return new WARNING.instance("Oops! Something went wrong.", 'failure', `${name}-failure`, response.response);
+                }
+
+                // Include it in the DOM
+                document.body.appendChild(target);
+            }
+
+            // Configure the parent element
+            this.element = document.createElement('form');
+            this.element.className = `dialog-box-container`;
+            this.element.target = 'dummytarget';
+            this.element.innerHTML = `
+            <div class="${this.name}-dialog-box dialog-box">
+                <div class="${this.name}-dialog-box-header dialog-box-header">
+                    <div class="${this.name}-dialog-box-header-title dialog-box-header-title">${this.title}</div>
+                    ${this.message ? ('<table class="' + this.name + '-dialog-box-header-message dialog-box-header-message"><tr>' +
+                        '<td class="' + this.name + '-dialog-box-header-message-line dialog-box-header-message-line"><td>' +
+                        '<td class="' + this.name + '-dialog-box-header-message-text dialog-box-header-message-text">' + 
+                            this.message + '</td>' + 
+                    '</tr></table>') : ''}
                 </div>
-            </div>
-            <div class="dialog-box-body">
-                <div class="dialog-box-body-text-container">
-                    <div class="dialog-box-body-text">
-                        ${this.message}
-                    </div>
-                </div>
-                <div class="dialog-box-body-buttons-container">
-                    <div class="dialog-box-body-buttons">
-                    </div>
+                <div class="${this.name}-dialog-box-body dialog-box-body">
+                    <div class="${this.name}-dialog-box-body-fields dialog-box-body-fields"></div>
+                    <div class="${this.name}-dialog-box-body-options dialog-box-body-options"></div>
                 </div>
             </div>`;
 
-        // Append the content to the page
-        body.appendChild(this.blackout);
-        body.appendChild(this.box);
+            // Append to body so buttons can then be appended
+            document.getElementsByTagName('body')[0].appendChild(target);
+            document.getElementsByTagName('body')[0].appendChild(this.blackout);
+            document.getElementsByClassName('dialog-blackout')[0].appendChild(this.element);
 
-        // Fix the buttons
-        let buttons = document.getElementsByClassName("dialog-box-body-buttons")[0];
-        let option_keys = Object.keys(this.options);
-        for(let i = 0; i < option_keys.length; i++){
+            // Configure the option buttons
+            let options = Object.keys(this.options);
+            let options_element = document.getElementsByClassName(`${this.name}-dialog-box-body-options`)[0];
 
-            // Some needed references
-            let option = document.createElement("div");
-            window.dialog = this;
+            for(let i = 0; i < options.length; i++){
 
-            // Set up the elements
-            option.className = "dialog-box-body-buttons-option";
-            option.innerHTML = `
-                <div class="option-button">
-                    <a href="#"
-                        style="background: ${this.options[option_keys[i]].background};" 
-                        onclick="${this.options[option_keys[i]].callback}(window.dialog)"
-                        onmouseout="this.style.background=\'${this.options[option_keys[i]].background}\'"
-                        onmouseover="this.style.background=\'${this.options[option_keys[i]].hover}\'">
-                        ${this.options[option_keys[i]].name}
-                    </a>
-                </div>`;
+                // Instantiate each of the buttons then append
+                let option = document.createElement('div');
+                option.className = `${this.name}-dialog-box-body-option ${options[i]}-option dialog-box-body-option dialog-box-body-option-${this.options[options[i]].type}`;
+                option.innerHTML = `${options[i]}`;
 
-            // Append the button
-            buttons.appendChild(option);
+                // Add event listener
+                let action = this.options[options[i]].action;
+                option.addEventListener('click', e => {
+                    action(e);
+                })
+
+                // Append to parent element
+                options_element.appendChild(option);
+            }
+
+            if(!this.fields) return;
+            if(!Object.keys(this.fields).length) return;
+
+            // Configure the fields in case there are any
+            let fields = Object.keys(this.fields);
+            let fields_element = document.getElementsByClassName(`${this.name}-dialog-box-body-fields`)[0];
+
+            for(let i = 0; i < fields.length; i++){
+
+                // Instantiate each of the fields then append
+                let field = null;
+                switch(this.fields[fields[i]].type){
+                    case 'text':
+                    case 'password':
+                        field = document.createElement('input');
+                        field.className = `${this.name}-dialog-box-body-field ${fields[i]}-option dialog-box-body-field`;
+                        field.type = `${this.fields[fields[i]].type}`;
+                        field.placeholder = `${this.fields[fields[i]].placeholder}`;
+                        field.innerHTML = `${fields[i]}`;
+                    break;
+                    case 'select':
+                        let contents = '';
+                        field = document.createElement('select');
+                        field.className = `${this.name}-dialog-box-body-select ${fields[i]}-select dialog-box-body-select`;
+
+                        for(let j = 0; j < this.fields[fields[i]].selection.length; j++)
+                            contents += `<option class="${this.name}-dialog-box-body-select-option ${fields[i]}-select-option dialog-box-body-select-option" value="${this.fields[fields[i]].selection[j].code}">${this.fields[fields[i]].selection[j].text}</option>\n`;
+
+                        field.innerHTML = contents;
+                    break;
+                    case 'none':
+                        field = document.createElement('input');
+                        field.className = `${this.name}-dialog-box-body-field ${fields[i]}-option dialog-box-body-field`;
+                        field.type = `${this.fields[fields[i]].type}`;
+                        field.placeholder = `${this.fields[fields[i]].placeholder}`;
+                        field.value = `${this.fields[fields[i]].value}`;
+                        field.innerHTML = `${fields[i]}`;
+                        field.style.display = 'none';
+                    break;
+                }
+
+                field.name = `${this.fields[fields[i]].name}`;
+
+                // Append to parent element
+                fields_element.appendChild(field);
+            }
+        },
+
+        // Kills the dialog box
+        kill: function(){
+            this.blackout.style.animationName = 'fade-out-full';
+            setTimeout(() => {
+                
+                // Retrieve blackout elemenet
+                let blackout = document.getElementsByClassName('dialog-blackout')[0];
+                if(!blackout) return;
+
+                // Remove the dialog box
+                blackout.parentElement.removeChild(blackout);
+            }, 199)
         }
-    }
-
-    // Close the dialog box
-    dialog.prototype.close = function(){
-        let body = document.getElementsByTagName("body")[0];
-
-        // Remove contents and dialog
-        body.removeChild(this.blackout);
-        body.removeChild(this.box);
-
-        // Reset window.ref
-        window.dialog = null;
-    }
-
-    // Functions for determining the state of the dialog 
-    dialog.prototype.setTrue = function(){
-        this.boolean = true;
-    }
-
-    dialog.prototype.setFalse = function(){
-        this.boolean = false;
     }
 
     return dialog;

@@ -1,0 +1,65 @@
+.panel-title {
+    display: block;
+}
+
+.panel-title-text {
+    padding: 0.6vw;
+    padding-top: 1.2vw;
+    padding-left: 3vw;
+
+    font-family: var(--main-title-font);
+    font-size: var(--title-size-relative);
+    text-align: left;
+    color: var(--main-accent-dark);
+}
+
+.panel-button {
+    display: block;
+}
+
+.panel-button-text-container {
+    border-radius: 2vw;
+    padding: 0.9vw;
+    margin: 0.75vw;
+
+    font-family: var(--main-title-font);
+    font-size: var(--subtitle-size-relative);
+    color: var(--main-shadow-dark);
+    
+    box-shadow: 0 0 0.5vw 0.25vw var(--default-shadow);
+    background-color: white;
+    transition: var(--default-transition-time);
+}
+
+.panel-button-selected>.panel-button-text-container {
+    padding-left: 2vw;
+    background-color: var(--positive-accent-light-hover);
+    color: var(--main-accent-dark);
+    cursor: pointer;
+}
+
+.panel-button-selected>.panel-button-text-container>div::before {
+    opacity: 100;
+}
+
+.panel-button-text-container:hover {
+    padding-left: 2vw;
+    background-color: var(--highlight-accent-light-hover);
+    color: var(--main-accent-dark);
+    cursor: pointer;
+}
+
+.panel-button-text-container:hover>div::before {
+    opacity: 100;
+}
+
+.panel-button-text {
+    padding-left: 0.5vw;
+    text-align: left;
+}
+
+.panel-button-text::before {
+    content: "•";
+    opacity: 0;
+    transition: var(--default-transition-time);
+}

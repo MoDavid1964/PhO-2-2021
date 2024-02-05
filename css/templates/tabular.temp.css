@@ -1,0 +1,214 @@
+.right-side-content {
+    overflow-y: scroll;
+}
+
+.tabular-header {
+    background: white;
+}
+
+.tabular-header-title {
+    padding-top: 1.2vw;
+    padding-left: 3vw;
+
+    font-family: var(--main-title-font);
+    font-size: var(--title-size-relative);
+    color: var(--main-accent-dark);
+}
+
+.tabular-header-controls {
+    padding: 1.2vw;
+    padding-top: 0.6vw;
+    padding-left: 3vw;
+}
+
+.tabular-header-controls-button {
+    display: inline-block;
+    border-radius: 2vw;
+    padding: 0.9vw;
+    margin: 0.75vw;
+
+    font-family: var(--main-title-font);
+    font-size: var(--subtitle-size-relative);
+    color: var(--main-shadow-dark);
+
+    box-shadow: 0 0 0.5vw 0.25vw var(--default-shadow);
+    background-color: white;
+    transition: var(--default-transition-time);
+}
+
+.tabular-header-controls-button:hover {
+    background-color: var(--highlight-accent-light-hover);
+    color: var(--main-accent-dark);
+    cursor: pointer;
+}
+
+.tabular-header-controls-button-text {
+    padding-left: 1vw;
+    padding-right: 1vw;
+    text-align: left;
+}
+
+.tabular-table {
+    border-collapse: collapse;
+    margin-left: 3vw;
+}
+
+.tabular-table-header-row {
+    background: var(--main-accent-light);
+    box-shadow: inset 0 0 0.5vw 0.25vw var(--default-shadow);
+}
+
+.tabular-table-header-row-data {
+    padding: 0.5vw;
+
+    font-family: var(--main-title-font);
+    font-size: var(--subtitle-size-relative);
+    color: var(--main-accent-dark);
+}
+
+.tabular-table-header-row-data-text {
+    padding: 0.5vw;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
+}
+
+.tabular-table-row {
+    border-radius: 0;
+    transition: var(--default-transition-time);
+}
+
+.tabular-table-row-positive {
+    background-color: var(--positive-accent-light-hover);
+}
+
+.tabular-table-row-negative {
+    background-color: var(--negative-accent-light-hover);
+}
+
+.tabular-table-row-neutral {
+    background-color: var(--neutral-accent-light-hover);
+}
+
+.tabular-table-row:nth-child(odd).tabular-table-row-positive {
+    background-color: var(--positive-accent-light);
+}
+
+.tabular-table-row:nth-child(odd).tabular-table-row-negative {
+    background-color: var(--negative-accent-light);
+}
+
+.tabular-table-row:nth-child(odd).tabular-table-row-neutral {
+    background-color: var(--neutral-accent-light);
+}
+
+.tabular-table-row:nth-child(odd) {
+    background: var(--default-shadow);
+}
+
+.tabular-table-row:hover {
+    border-radius: 2vw;
+    background: var(--highlight-accent-light-hover) !important;
+}
+
+.tabular-table-row:hover>.tabular-table-row-data>.tabular-table-row-data-button {
+    background-color: white;
+    box-shadow: 0 0 0.5vw 0.25vw var(--default-shadow);
+}
+
+.tabular-table-row:hover>.tabular-table-row-data>.tabular-table-row-data-toggle {
+    background-color: white;
+    box-shadow: 0 0 0.5vw 0.25vw var(--default-shadow);
+}
+
+.tabular-table-row-data {
+    padding: 0.33vw;
+
+    font-family: var(--main-title-font);
+    font-size: var(--subtitle3-size-relative);
+    color: var(--main-shadow-dark);
+    text-align: center;
+}
+
+.tabular-table-row-data-text {
+    border-radius: 2vw;
+    padding: 0.45vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+.tabular-table-row-data-button {
+    background-color: var(--negative-accent-light-hover);
+    border-radius: 2vw; 
+    padding: 0.45vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+
+    transition: var(--default-transition-time);
+}
+
+.tabular-table-row-data-button:hover {
+    background-color: var(--main-shadow-dark) !important;
+    color: var(--main-accent-light);
+    cursor: pointer;
+}
+
+.tabular-table-row-data-toggle {
+    border-radius: 2vw; 
+    padding: 0.45vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+
+    transition: var(--default-transition-time);
+}
+
+.tabular-table-row-data-toggle:hover {
+    background-color: var(--main-shadow-dark) !important;
+    color: var(--main-accent-light);
+}
+
+.tabular-table-row-data-toggle.isTrue {
+    background-color: var(--positive-accent-light-hover);
+}
+
+.tabular-table-row-data-toggle.isFalse {
+    background-color: var(--negative-accent-light-hover);
+}
+
+.tabular-table-row-data-toggle:hover {
+    cursor: pointer;
+}
+
+.tabular-table-row-marker {
+    padding-left: 3vw;
+}
+
+.tabular-table-row-marker-text {
+    display: inline-block;
+    padding: 0;
+
+    width: 1.25vw;
+    height: 1.25vw;
+    transform: translate(0, calc(0.15 * var(--subtitle3-size-relative)));
+
+    background: white;
+    box-shadow: 0 0 0.5vw 0.25vw var(--default-shadow);
+    transition: var(--default-transition-time);
+}
+
+.tabular-table-row-marker-text:hover {
+    background: var(--positive-accent-light-hover);
+    cursor: pointer;
+}
+
+.tabular-table-row-buffer {
+    column-width: 1000px;
+    padding: 0;
+    margin: 0;
+    height: 0;
+}
+
+.tabular-table-row-buffer-text {
+    padding: 0;
+    margin: 0;
+    height: 0;
+}

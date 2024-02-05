@@ -5,11 +5,10 @@
     top: 0; left: 0;
     
     width: 100vw; 
-    height: 5.5vw;
+    height: 5vw;
 
     background: var(--main-accent-dark);
-    box-shadow: 0 0 0.5vw 0.25vw rgba(0, 0, 0, 0.2);
-
+    box-shadow: 0 0 0.5vw 0.25vw var(--default-shadow);
     font-family: var(--main-title-font);
 }
 
@@ -31,13 +30,14 @@
 }
 
 .nav-title {
-    padding-top: calc(1.8vw - var(--title-size-offset-relative));
+    padding-top: calc(1.05vw - var(--title-size-offset-relative));
     font-size: var(--title-size-relative);
 }
 
 a.nav-title-href-link {
     color: var(--main-accent-light);
     text-decoration: none;
+    transition: var(--default-transition-time);
 }
 
 a.nav-title-href-link:hover {
@@ -53,6 +53,7 @@ a.nav-title-href-link:hover {
 .nav-buttons {
     display: flex;
     flex-direction: row-reverse;
+    margin-right: 1vw;
 
     font-size: var(--title-size-relative);
 }
@@ -60,15 +61,77 @@ a.nav-title-href-link:hover {
 .nav-buttons-button {
     height: 20px;
 
-    padding-right: 2.75vw;
-    padding-top: calc(1.8vw - var(--title-size-offset-relative));
+    padding-right: 1vw;
+    padding-top: calc(1.5vw - var(--title-size-offset-relative));
 }
 
 a.nav-buttons-button-link {
     color: var(--main-accent-light);
     text-decoration: none;
+    transition: var(--default-transition-time);
+}
+
+a.nav-buttons-button-link::before {
+    display: inline-block;
+    content: "[ ";
+
+    color: var(--main-accent-light);
+    opacity: 0;
+
+    transition: var(--default-transition-time);
+    transform: translateX(-25px);
+}
+
+a.nav-buttons-button-link::after {
+    display: inline-block;
+    content: " ]";
+
+    color: var(--main-accent-light);
+    opacity: 0;
+    
+    transition: var(--default-transition-time);
+    transform: translateX(25px);
 }
 
 a.nav-buttons-button-link:hover {
-    color: var(--secondary-accent-light)
+    color: var(--secondary-accent-light);
+}
+
+a.nav-buttons-button-link:hover::before {
+    color: var(--secondary-accent-light);
+    opacity: 0.5;
+    transform: translateX(-5px);
+}
+
+a.nav-buttons-button-link:hover::after {
+    color: var(--secondary-accent-light);
+    opacity: 0.5;
+    transform: translateX(5px);
+}
+
+@media only screen and (max-aspect-ratio: 1/1) {
+    .nav {
+        width: 100vw; 
+        height: 5vh;
+        background: var(--main-accent-dark);
+    }
+
+    .nav-title-container {
+        padding-left: 1vh;
+    }
+    
+    .nav-title {
+        padding-top: 0.4vh;
+        font-size: 2.5vh;
+    }
+    
+    .nav-buttons {
+        margin-right: 1vh;
+        font-size: 2.5vh;
+    }
+    
+    .nav-buttons-button {
+        padding-right: 1vh;
+        padding-top: 0.8vh;
+    }
 }

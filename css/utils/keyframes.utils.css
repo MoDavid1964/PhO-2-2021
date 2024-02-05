@@ -1,0 +1,93 @@
+/* Fade ins */
+@keyframes fade-in-quarter {
+    from {opacity: 0}
+    to {opacity: 0.25}
+}
+
+@keyframes fade-in-half {
+    from {opacity: 0}
+    to {opacity: 0.5}
+}
+
+@keyframes fade-in-full {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+/* Fade outs */
+@keyframes fade-out-quarter {
+    from {opacity: 0.25}
+    to {opacity: 0}
+}
+
+@keyframes fade-out-half {
+    from {opacity: 0.5}
+    to {opacity: 0}
+}
+
+@keyframes fade-out-full {
+    from {opacity: 1}
+    to {opacity: 0}
+}
+
+/* Slide ins */
+@keyframes slide-in-up-margin {
+    from {margin-top: -20px}
+    to {margin-top: 0; opacity: 1;}
+}
+
+@keyframes slide-in-down-margin {
+    from {margin-top: 20px}
+    to {margin-top: 0; opacity: 1;}
+}
+
+@keyframes slide-in-left-margin {
+    from {margin-left: -20px;}
+    to {margin-left: 0; opacity: 1;}
+}
+
+@keyframes slide-in-right-margin {
+    from {margin-left: 20px;}
+    to {margin-left: 0; opacity: 1;}
+}
+
+@keyframes slide-in-up-border {
+    from {top: -20px}
+    to {top: 0; opacity: 1;}
+}
+
+@keyframes slide-in-down-border {
+    from {down: -20px}
+    to {down: 0; opacity: 1;}
+}
+
+@keyframes slide-in-left-border {
+    from {left: -20px;}
+    to {left: 0; opacity: 1;}
+}
+
+@keyframes slide-in-right-border {
+    from {right: -20px;}
+    to {right: 0; opacity: 1;}
+}
+
+/* Slide outs */
+@keyframes slide-out-up-margin {
+    from {margin-top: 0;}
+    to {margin-top: 20px; opacity: 0;}
+}
+
+@keyframes slide-out-down-margin {
+    from {margin-top: 0;}
+    to {margin-top: -20px; opacity: 0;}
+}
+
+@keyframes slide-out-left-margin {
+    from {margin-left: 0;}
+    to {margin-left: 20px; opacity: 0;}
+}
+
+@keyframes slide-out-right-margin {
+    from {margin-left: 0;}
+    to {margin-left: -20px; opacity: 0;}
+}

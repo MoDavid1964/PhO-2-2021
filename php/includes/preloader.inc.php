@@ -27,9 +27,10 @@
 
         // The script which handles the preloader
         echo "
-            <script>
+            <script class='preloader-script'>
                 (function(){
                     let preloader = document.getElementsByClassName('preloader')[0];
+                    let preloader_script = document.getElementsByClassName('preloader-script')[0];
                     let preloader_dots_container = document
                         .getElementsByClassName('preloader-dot-container')[0];
                     let preloader_dots = [], preloader_time = 0, preloader_goal = 0;
@@ -72,6 +73,7 @@
                             // End the pre_loader
                             if(Math.abs(preloader_time - preloader_goal) > 12){
                                 document.getElementsByTagName('body')[0].removeChild(preloader);
+                                preloader_script.parentElement.removeChild(preloader_script);
                                 clearInterval(interval);
                             }
                         } else {

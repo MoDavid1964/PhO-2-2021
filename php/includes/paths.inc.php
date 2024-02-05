@@ -14,12 +14,19 @@
                 return PARENT."php/includes/session.inc.php";
             case "database":
                 return PARENT."php/includes/db.inc.php";
+            case "preloader":
+                return PARENT."php/includes/preloader.inc.php";
             default:
                 return PARENT.$absolutePath;
         }
     }
 
-    function route_home(){
-        header("location: ".PARENT."index.php");
+    // Redirects to a page, with js as a failsafe
+    function redirect($url){
+        if (headers_sent()){
+            die("<script>window.location='".$url."';</script‌​>");
+        } else {
+            header("Location: ".$url);die();
+        }    
     }
 ?>

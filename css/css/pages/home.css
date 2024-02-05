@@ -1,0 +1,40 @@
+.timer-container {
+    display: block;
+    margin-left: 10vw;
+    margin-top: 10vh;
+
+    text-align: left;
+    font-family: var(--main-text-font);
+    font-size: 10vw;
+}
+
+.timer-title {
+    font-size: 3vw;
+}
+
+.timer-label {
+    font-size: 3vw;
+    font-weight: bold;
+}
+
+.timer-state-pos {
+    color: var(--positive-accent-light);
+}
+
+.timer-state-neg {
+    color: var(--negative-accent-light);
+}
+
+@media only screen and (max-aspect-ratio: 1/1) {
+    .timer-container {
+        font-size: 15vh;
+    }
+    
+    .timer-title {
+        font-size: 4.5vh;
+    }
+    
+    .timer-label {
+        font-size: 4.5vh;
+    }
+}

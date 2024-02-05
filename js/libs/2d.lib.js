@@ -195,7 +195,3 @@ const $2D = (function(){
     return $2D;
 })();
 
-// Means the script has succesfully been loaded
-(function(){
-    window.PROCEED = true;
-})();

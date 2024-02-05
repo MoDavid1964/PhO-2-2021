@@ -1,0 +1,282 @@
+/* Dialog styling */
+.dialog-blackout {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: rgba(0, 0, 0, 0.69);
+    animation-name: fade-in-full;
+    animation-duration: var(--default-transition-time);
+}
+
+.dialog-box-container {
+    position: absolute;
+    opacity: 0;
+
+    width: 100%;
+    height: 100%;
+
+    animation-name: slide-in-down-margin;
+    animation-duration: var(--default-transition-time);
+    animation-delay: var(--default-transition-interval);
+    animation-fill-mode: forwards;
+}
+
+.dialog-box {
+    position: relative;
+    background: var(--main-accent-light);
+    border-radius: 1vw 4vw 1vw 1vw;
+
+    top: 40%;
+    left: 50%;
+
+    width: 20vw;
+    transform: translate(-50%, -50%);
+}
+
+.dialog-box-header {
+    background-color: var(--highlight-accent-light-hover);
+    box-shadow: 0 0 0.5vw 0.25vw var(--default-shadow);
+    border: 1px solid var(--highlight-accent-light-hover);
+    border-radius: 0 4vw 4vw 0;
+    position: relative;
+
+    padding: 2vw;
+    padding-top: calc(1.8vw - var(--title-size-offset-relative));
+    padding-bottom: 1vw;
+}
+
+.dialog-box-header-title {
+    opacity: 0;
+    padding-bottom: 0.5vw;
+    
+    font-family: var(--main-title-font);
+    font-size: var(--title-size-relative);
+    color: var(--main-accent-dark);
+
+    animation-name: slide-in-left-margin;
+    animation-duration: var(--default-transition-time);
+    animation-delay: calc(2 * var(--default-transition-interval));
+    animation-fill-mode: forwards;
+}
+
+.dialog-box-body {
+    border-radius: 1vw;
+
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+.dialog-box-body-options {
+    padding-top: 1.5vw;
+    padding-bottom: 1.5vw;
+}
+
+.dialog-box-header-message {
+    border: 0.5vw;
+    margin: 0.25vw;
+    margin-bottom: 0.5vw;
+    padding: 1%;
+
+    font-family: var(--alt-title-font);
+    font-size: var(--subtitle3-size-relative);
+    color: var(--main-shadow-dark);
+}
+
+.dialog-box-header-message-line {
+    width: 1%;
+    background-color: var(--main-shadow-dark);
+    opacity: 0;
+
+    animation-name: fade-in-full;
+    animation-duration: var(--default-transition-time);
+    animation-delay: calc(3 * var(--default-transition-interval));
+    animation-fill-mode: forwards;
+}
+
+.dialog-box-header-message-text {
+    padding: 2%;
+    opacity: 0;
+
+    animation-name: slide-in-left-margin;
+    animation-duration: var(--default-transition-time);
+    animation-delay: calc(4 * var(--default-transition-interval));
+    animation-fill-mode: forwards;
+}
+
+.dialog-box-body-fields {
+    padding-top: 1vw;
+    opacity: 0;
+
+    animation-name: slide-in-left-margin;
+    animation-duration: var(--default-transition-time);
+    animation-delay: calc(6 * var(--default-transition-interval));
+    animation-fill-mode: forwards;
+}
+
+.dialog-box-body-field {
+    position: relative;
+    top: 50%; left: 50%;
+    width: 100%;
+    margin-top: 1.5vw;
+    padding: 0.3vw;
+
+    border: none;
+    border-bottom: solid black 1px;
+    color: black;
+
+    background: none;
+    font-family: var(--form-input-font);
+    font-size: 1vw;
+    font-weight: 450;
+
+    transform: translate(-50%, -50%);
+}
+
+.dialog-box-body-field:focus {
+    outline: none;
+}
+
+@keyframes scrolling-left1 {
+    0% {transform: translateX(100%);
+        -webkit-transform: translateX(100%);}
+    100% {transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);}
+}
+
+.marquee {
+    display: inline-block;
+    background-color: red;
+    -webkit-animation: scrolling-left1 20s linear infinite;
+    animation: scrolling-left1 20s linear infinite;
+}
+
+.dialog-box-body-select {
+    position: relative;
+    top: 50%; left: 50%;
+    width: 100%;
+    margin-top: 1.5vw;
+    padding: 0.3vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+
+    border: none;
+    border-radius: 1vw;
+    color: black;
+    box-shadow: 0 0 0.5vw 0.25vw var(--default-shadow);
+    background-color: white;
+
+    font-family: var(--form-input-font);
+    font-size: 1vw;
+    font-weight: 450;
+    text-overflow: ellipsis;
+
+    transform: translate(-50%, -50%);
+    transition: var(--default-transition-time);
+}
+
+.dialog-box-body-select>option {
+    background-color: white;
+    font-family: var(--form-input-font);
+    font-size: 1vw;
+    font-weight: 450;
+
+    color: rgba(69, 69, 69, 0.69);
+    text-align: justify;
+}
+
+.dialog-box-body-select:hover {
+    background-color: var(--neutral-accent-light-hover);
+    cursor: pointer;
+}
+
+.dialog-box-body-select:focus {
+    outline: none;
+}
+
+.dialog-box-body-options {
+    opacity: 0;
+
+    animation-name: fade-in-full;
+    animation-duration: var(--default-transition-time);
+    animation-delay: calc(6 * var(--default-transition-interval));
+    animation-fill-mode: forwards;
+}
+
+.dialog-box-body-option {
+    border-radius: 1vw;
+    box-shadow: 0 0 0.5vw 0.25vw var(--default-shadow);
+    background-color: white;
+
+    padding: 0.4vw;
+    margin-bottom: 0.75vw;
+
+    font-family: var(--main-title-font);
+    text-align: center;
+    color: var(--main-shadow-dark);
+    font-size: var(--subtitle3-size-relative);
+    transition: var(--default-transition-time);
+}
+
+.dialog-box-body-option:hover {
+    color: var(--main-accent-dark);
+    cursor: pointer;
+}
+
+.dialog-box-body-option::before {
+    display: inline-block;
+    content: "❰ ";
+
+    color: var(--main-shadow-dark);
+    opacity: 0;
+
+    transition: var(--default-transition-time);
+    transform: translateX(-25px);
+}
+
+.dialog-box-body-option::after {
+    display: inline-block;
+    content: " ❱";
+
+    color: var(--main-shadow-dark);
+    opacity: 0;
+    
+    transition: var(--default-transition-time);
+    transform: translateX(25px);
+}
+
+.dialog-box-body-option:hover::before {
+    color: var(--main-accent-dark);
+    opacity: 1;
+    transform: translateX(-5px);
+}
+
+.dialog-box-body-option:hover::after {
+    color: var(--main-accent-dark);
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+.dialog-box-body-option-confirm:hover {
+    background-color: var(--positive-accent-light-hover);
+    box-shadow: 0 0 1vw 0.5vw var(--default-shadow);
+}
+
+.dialog-box-body-option-submit:hover {
+    background-color: var(--neutral-accent-light-hover);
+    box-shadow: 0 0 1vw 0.5vw var(--default-shadow);
+}
+
+.dialog-box-body-option-deny:hover {
+    background-color: var(--negative-accent-light-hover);
+    box-shadow: 0 0 1vw 0.5vw var(--default-shadow);
+}
+
+.dialog-box-body-option-neutral:hover {
+    background-color: var(--neutral-accent-light-hover);
+    box-shadow: 0 0 1vw 0.5vw var(--default-shadow);
+}

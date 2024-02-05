@@ -11,11 +11,11 @@
 
 // A dictionary of the sites' fonts
 const FONTS = {
-    "main-title-font": "Spartan,700",
-    "main-text-font": "Poppins",
-    "alt-title-font": "?",
+    "main-title-font": "SwedenSansBold",
+    "main-text-font": "SwedenSans",
+    "alt-title-font": "Roboto",
     "alt-text-font": "?",
-    "form-input-font": "Roboto Mono",
+    "form-input-font": "Lexend",
 };
 
 // Some typical sizes used in the document
@@ -34,22 +34,34 @@ const SIZES = {
 };
 
 const OFFSETS = {
-    "title-size-offset-relative": "0vw",
-    "title-size-offset-absolute": "0px",
+    "title-size-offset-relative": "0.27vw",
+    "title-size-offset-absolute": "5px",
     "subtitle-size-offset-relative": "",
     "subtitle-size--offset-absolute": "",
 };
 
 // A dictionary of the site's color accents
 const ACCENTS = {
-    "main-accent-dark": "rgba(0, 53, 84, 1)",
+    "main-accent-dark": "rgba(63, 81, 181, 1)",
     "main-accent-light": "rgba(246, 253, 255, 1)",
+    "main-shadow-dark": "rgba(63, 81, 181, 0.75)",
+    "main-shadow-light": "rgba(246, 253, 255, 0.75)",
+    "default-shadow": "rgba(0, 0, 0, 0.05)",
     "secondary-accent-dark": "rgba(36, 181, 207, 1)",
     "secondary-accent-light": "rgba(177, 248, 255, 1)",
-    "positive-accent-light": "rgba(80, 253, 209, 1)",
-    "negative-accent-light": "rgba(255, 181, 223, 1)",
-    "positive-accent-light-hover": "rgba(100, 255, 220, 1)",
-    "negative-accent-light-hover": "rgba(255, 200, 230, 1)",
+    "positive-accent-light": "rgba(120, 255, 215, 1)",
+    "negative-accent-light": "rgba(255, 155, 170, 1)",
+    "neutral-accent-light": "rgba(160, 200, 255, 1)",
+    "positive-accent-light-hover": "rgba(165, 255, 230, 1)",
+    "negative-accent-light-hover": "rgba(255, 185, 200, 1)",
+    "neutral-accent-light-hover": "rgba(185, 220, 255, 1)", 
+    "highlight-accent-light-hover": "rgba(200, 235, 255, 1)",
+    "highlight-accent-dark-hover": "rgba(50, 80, 100, 1)",
+};
+
+const ANIMS = {
+    "default-transition-time": "0.2s",
+    "default-transition-interval": "0.1s",
 };
 
 // Creates the link element to retrieve fonts
@@ -62,6 +74,7 @@ const ACCENTS = {
     let size_keys = Object.keys(SIZES);
     let offset_keys = Object.keys(OFFSETS);
     let accent_keys = Object.keys(ACCENTS);
+    let anim_keys = Object.keys(ANIMS);
 
     // In case its been added already, just remove it
     let fonts = document.getElementById("fonts");
@@ -127,9 +140,11 @@ const ACCENTS = {
         document.documentElement.style.setProperty(
             `--${accent_keys[i]}`, ACCENTS[accent_keys[i]]);
     }
+
+    // Set some css variables for animations and transitions
+    for(let i = 0; i < anim_keys.length; i++){
+        document.documentElement.style.setProperty(
+            `--${anim_keys[i]}`, ANIMS[anim_keys[i]]);
+    }
 })();
 
-// Means the script has succesfully been loaded
-(function(){
-    window.PROCEED = true;
-})();

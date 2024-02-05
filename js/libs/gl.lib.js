@@ -30,6 +30,17 @@ const GL = (function(){
         gl.viewport(0, 0, cnv.width, cnv.height);
     }
 
+    // Make sure rendering doesnt break when resizing
+    GL.dynamicCanvas = function(){
+        window.addEventListener("resize", e => {
+            cnv.style.width = cnv.width = window.innerWidth;
+            cnv.style.height = cnv.height = window.innerHeight;
+
+            // Specifies the size of the canvas for webgl
+            gl.viewport(0, 0, cnv.width, cnv.height);
+        });
+    }
+
     GL.width = function(){
         return cnv.width;
     }
@@ -115,6 +126,25 @@ const GL = (function(){
         return uniforms[uniform].location;
     }
 
+    // Drawing and updating functions
+    GL.bindArrayBuffer = function(attribute){
+        // Sets the current bound array buffer on the global bind point
+        // Note that attribute is the associated attribute with the buffer
+        gl.bindBuffer(gl.ARRAY_BUFFER, buffers[attribute]);
+    }
+
+    GL.bindTexture2D = function(tex_id){
+        // Sets the current bound texture 2d on the global bind point
+        // Note that tex_id is the name of associated texture with the buffer
+        gl.bindTexture(gl.TEXTURE_2D, textures[tex_id]);
+
+        // Set default configuration
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+    }
+
     GL.setBufferData = function(attribute, data){
         // Buffer for passing data to the gpu
         // Note that attribute is the associated attribute with the buffer 
@@ -137,25 +167,6 @@ const GL = (function(){
         // It only binds it so it can be populated
         GL.bindTexture2D(tex_id);
         gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, data);
-    }
-
-    // Drawing and updating functions
-    GL.bindArrayBuffer = function(attribute){
-        // Sets the current bound array buffer on the global bind point
-        // Note that attribute is the associated attribute with the buffer
-        gl.bindBuffer(gl.ARRAY_BUFFER, buffers[attribute]);
-    }
-
-    GL.bindTexture2D = function(tex_id){
-        // Sets the current bound texture 2d on the global bind point
-        // Note that tex_id is the name of associated texture with the buffer
-        gl.bindTexture(gl.TEXTURE_2D, textures[tex_id]);
-
-        // Set default configuration
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
     }
 
     GL.passAttributeData = function(program, attribute, params){
@@ -184,22 +195,26 @@ const GL = (function(){
                 gl.uniform4fv(GL.getUniform(program, uniform), data);
                 break;
             case "mat2":
-                gl.uniformMatrix2fv(GL.getUniform(program, uniform), data);
+                gl.uniformMatrix2fv(GL.getUniform(program, uniform), false, data);
                 break;
             case "mat3":
-                gl.uniformMatrix3fv(GL.getUniform(program, uniform), data);
+                gl.uniformMatrix3fv(GL.getUniform(program, uniform), false, data);
                 break;
             case "mat4":
-                gl.uniformMatrix4fv(GL.getUniform(program, uniform), data);
+                gl.uniformMatrix4fv(GL.getUniform(program, uniform), false, data);
                 break;
         }
+    }
+
+    GL.enableDepthTest = function(){
+        gl.enable(gl.DEPTH_TEST);
     }
 
     GL.clear = function(){
 
         // Clear the different buffers
-        gl.clearColor(1.0, 1.0, 1.0, 1.0);
-        gl.clear(gl.COLOR_BUFFER_BIT);
+        gl.clearColor(0, 0, 0, 1.0);
+        gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
     };
 
     GL.use = function(program){
@@ -207,7 +222,8 @@ const GL = (function(){
     }
 
     GL.render = function(params){
-        gl.drawArrays(gl.TRIANGLES, params.offset, params.count);
+        gl.drawArrays(gl[params.type.toUpperCase()],
+            params.offset, params.count);
     }
 
     return GL;
