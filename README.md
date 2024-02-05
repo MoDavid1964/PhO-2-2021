@@ -1,62 +1,70 @@
-# PHOPHO 2022
+# (PhO)^2 2021 CMS
 
-### About
+This was the official Content Management System (CMS) for the first iteration of the Philippine Online Physics Olympiad or (PhO)^2. 
+The CMS uses an Apache server with a MySQL database and is written primarily with PHP (for server-side functionalities) and JS (for the client side).
+Note that this project is no longer maintained; the current version of the CMS can be found [here](https://github.com/MoDavid1964/PhO-2-Official).
 
-PHOPHO is a planned upcoming competition which aims to promote an interest in physics among members of the PSHS community. The competition will take place during YMSAT of SY2021-2022 and will be facilitated by various members of the PYHS.
+## 1 Dev Story
 
-### The CMS
+> // Do soon LMAO; solo devving story, learning php, apache, sql, how servers work, services and jobs (on reboot), first aws adventure, final exam mishap with english comm subject, etc
 
-The content management system (CMS) for PHOPHO 2022 is custom-built and in-development. If you wish to contribute to the project, contact one of the developers listed below.
+## 2 About the CMS
 
-You can currently visit the site by clicking [here](http://official-pipho.epizy.com/), although it will be migrated to a better hosting platform as soon as the site is finalized.
+When the CMS was initially launced, AWS was used to run and maintain the website. However, although a domain name was also procured for this purpose,
+the website is now defunct and can only be run locally by porting the following codebase into XAMPP (specifically, inside the `htdocs/` folder). Nevertheless,
+some gifs and screenshots are shown below to portray the original site.
 
-##### Initial Plan
+## 2.1 CMS Demos
 
-The CMS manages two types of user account: admin accounts and participant accounts. The former possesses privileges which allow them to modify the database storing various resources and PHOPHO data. The latter are users taking part in the competition, and have access only to the lower-level functionalities of the site. Note that a teaming system is yet to be implemented for the site.
+Here's a showcase of the different aspects of the website, depicted through pictures and GIFs. In retrospect, the website had a rather funky/goofy appeal to its interface;
+this contrasts with the current implementation of the CMS, which follows a sleeker design pattern.
 
-##### Canva Draft
+### 2.1.1 Landing Page
 
-The interface of the CMS is currently being drafted via canva. The link to the initial design of a handful of pages may be visited [here](https://www.canva.com/design/DAEicz5DcKQ/P2l9i94m9-8gskJTZl8umw/view?utm_content=DAEicz5DcKQ&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton).
+> **`FIG. 2.1.1.1`** Initial welcome greeting.<br><br>
+<img src="./README/landing-page-welcome.gif" width="600px">
 
-##### Progress
+> **`FIG. 2.1.1.2`** The landing page presents a series of interactive physics simulations.<br><br>
+<img src="./README/landing-page-demos.gif" width="600px">
 
-* ##### v0.1.0
+> **`FIG 2.1.1.3`** The login process.<br><br>
+<img src="./README/landing-page-login.gif" width="600px">
 
-Currently, a rudimentary UI has been implemented, and the login system functions as needed. Users may also register, although input validation has not been implemented.
-Restrictions on accessing admin-level functionality has also been implemented, and user sessions function with basic access to the site. However, logging out is currently impossible.
+---
 
-* ##### v0.1.1
+### 2.1.2 Admin Dashboard
 
-The Admin Control Panel has been updated and now displays a users panel; information on every 15 users is retrieved per api call. The account page was added and drafted, and dialog boxes have been implemented in js.
+> **`FIG. 2.1.2.1`** Admin dashboard overview.<br><br>
+<img src="./README/admin-dashboard.gif" width="600px">
 
-* ##### v0.1.2
+> **`FIG. 2.1.2.2`** This is where user accounts can be modified and managed.<br><br>
+<img src="./README/admin-dashboard-accounts.gif" width="600px">
 
-Logging out is now functional, and admin users can now change user priviliges. User accounts may also be deleted via admins. The account and registration pages have also been removed from circulation (they have been hidden).
+> **`FIG 2.1.2.3`** The accounts depicted here are the teams that made it to the final round.<br><br>
+<img src="./README/admin-dashboard-finalists.gif" width="600px">
 
-* ##### v0.1.3
+> **`FIG 2.1.2.4`** This is where the exact details of each problem can be calibrated by the admins.<br><br>
+<img src="./README/admin-dashboard-problems.gif" width="600px">
 
-A preloading animation was added to ensure a better user experience (it looks rather disgusting viewing raw html before all the css/js have loaded in).
+---
 
-* ##### v0.1.4
+### 2.1.3 User Dashboard
 
-The theme of the site has been updated and now follows the scheme depicted [here](https://www.canva.com/design/DAEicz5DcKQ/P2l9i94m9-8gskJTZl8umw/view?utm_content=DAEicz5DcKQ&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton).
+> **`FIG. 2.1.3.1`** Initial welcome greeting.<br><br>
+<img src="./README/user-dashboard-problems.gif" width="600px">
 
-### Problems
+> **`FIG. 2.1.3.2`** The landing page presents a series of interactive physics simulations.<br><br>
+<img src="./README/user-dashboard-submissions.gif" width="600px">
 
-The problems included in the competition will be drafted by members of the PYHS. However, contributors may refer problems to any one of our members; these may then be included after further perusal.
+> **`FIG 2.1.3.3`** The logout process. Note that the leaderboard (albeit defunct and empty) is also briefly shown before logging out.<br><br>
+<img src="./README/user-logout.gif" width="600px">
 
-### Contribute
+---
 
-Want to contribute to the project? Send an email to one of these accounts
+## 2.2 CMS Code Breakdown
 
-> b2023mmdavid@pshs.edu.ph
 
-> b2022ermartinez@pshs.edu.ph
 
-or a discord request to either
+## 3 The Current CMS
 
-> 3md#0784
-
-> rgm#4317
-
-for more information on the project and what you can do.
+The repo for the current CMS can be accessed [here](https://github.com/MoDavid1964/PhO-2-Official).
